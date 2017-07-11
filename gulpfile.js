@@ -57,6 +57,6 @@ gulp.task('default', ['browserSync', 'sass'], function() {
 });
 gulp.task('build', function() {
     runSequence('clean:dist', ['sass', 'useref', 'images', 'fonts'],
-        function() { console.log("Build Succses!"); }
+        () => { console.log("Build Succses!"); }
     )
 })

@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     del = require('del'),
     gulpIf = require('gulp-if'),
     uglify = require('gulp-uglify'),
-    cssnano = require('gulp-cssnano'),
+    csso = require('gulp-csso'),
     cache = require('gulp-cache'),
     runSequence = require('run-sequence'),
     imagemin = require('gulp-imagemin'),
@@ -45,7 +45,11 @@ gulp.task('useref', function() {
     return gulp.src('app/*.html')
         .pipe(useref())
         .pipe(gulpIf('*.js', uglify()))
-        .pipe(gulpIf('*.css', cssnano()))
+        .pipe(gulpIf('*.css', csso({
+            restructure: false,
+            sourceMap: true,
+            debug: true
+        })))
         .pipe(gulp.dest('dist'));
 });
 

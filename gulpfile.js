@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     imagemin = require('gulp-imagemin'),
     browserSync = require('browser-sync').create(),
-    useref = require('gulp-useref');
+    useref = require('gulp-useref'),
+    gzip = require('gulp-gzip');
 
 gulp.task('default', ['browserSync', 'sass'], function() {
     gulp.watch('app/*.html', browserSync.reload);
